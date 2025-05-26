@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Polaznik {
+public class Polaznik implements Comparable<Polaznik> {
 
     private String ime;
     private String prezime;
@@ -44,5 +44,10 @@ public class Polaznik {
                 ", prezime='" + prezime + '\'' +
                 ", e-mail='" + email + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Polaznik other) {
+        return this.prezime.compareToIgnoreCase(other.prezime);
     }
 }

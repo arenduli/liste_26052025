@@ -1,8 +1,8 @@
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
 
-// pgm za evidenciju polaznika na tečaju
 public class EvidencijaPolaznika {
 
     public static void main(String[] args) {
@@ -33,10 +33,8 @@ public class EvidencijaPolaznika {
                 }
             } else if (izbor == 2) {
                 System.out.println("Svi polaznici na tečaju:");
-                // stream() metoda za sortiranje polaznika po prezimenu
-                polaznici.stream()
-                        .sorted((p1, p2) -> p1.getPrezime().compareToIgnoreCase(p2.getPrezime()))
-                        .forEach(System.out::println);
+                Set<Polaznik> sortedPolaznici = new TreeSet<>(polaznici);
+                sortedPolaznici.forEach(System.out::println);
             } else {
                 System.out.println("Pogrešan unos, pokušajte još jednom!");
             }
